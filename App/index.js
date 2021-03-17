@@ -29,9 +29,9 @@ const scrapingProfile = () => {
   );
   const elementLocation = document
     .querySelectorAll("div.ph5.pb5 > div.display-flex.mt2 ul")[1]
-    .querySelector("li");
+    ?.querySelector("li");
   const elementResume = document.querySelector("section.pv-about-section > p");
-  elementResume.querySelector("span > a").click();
+  elementResume?.querySelector("span > a")?.click();
 
   const name = elementNameProfile ? elementNameProfile.innerText : "";
   const job = elementJob ? elementJob.innerText : "";
@@ -44,7 +44,7 @@ const scrapingProfile = () => {
   const education = document.querySelector(
     "section.pv-profile-section.education-section ul"
   );
-  const elementsEducation = education.querySelectorAll("li");
+  const elementsEducation = education?.querySelectorAll("li");
   const infoEducation = [];
   elementsEducation.forEach((element) => {
     const info = element.querySelector(
@@ -57,8 +57,8 @@ const scrapingProfile = () => {
       info?.querySelector("div > div > h3.pv-entity__school-name")?.innerText ||
       "";
     const educationPeriod =
-      info?.querySelector("div > p.pv-entity__dates > span > time")?.innerText ||
-      "";
+      info?.querySelector("div > p.pv-entity__dates > span > time")
+        ?.innerText || "";
     infoEducation.push({ educationLevel, educationCenter, educationPeriod });
   });
 
@@ -67,7 +67,7 @@ const scrapingProfile = () => {
   const experience = document.querySelector(
     "section.pv-profile-section.experience-section ul"
   );
-  const elementsExperience = experience.querySelectorAll("li");
+  const elementsExperience = experience?.querySelectorAll("li");
   const infoExperience = [];
   elementsExperience.forEach((element) => {
     const info = element.querySelector(
